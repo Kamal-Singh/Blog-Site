@@ -1,0 +1,32 @@
+{
+  "name": "blog_app",
+  "version": "1.0.0",
+  "description": "An app of a blog using RESTful routings.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamal-Singh/Blog-Site.git"
+  },
+  "keywords": [
+    "RESTful",
+    "routing",
+    "Nodejs",
+    "npm",
+    "packages"
+  ],
+  "author": "Kamal Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kamal-Singh/Blog-Site/issues"
+  },
+  "homepage": "https://github.com/Kamal-Singh/Blog-Site#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.2"
+  }
+}
