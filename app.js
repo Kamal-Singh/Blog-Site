@@ -2,10 +2,12 @@ var express     = require('express'),
 app             = express(),
 mongoose        = require('mongoose'),
 bodyParser      = require('body-parser'),
-methodOverride = require('method-override');
+expressSanitized= require('express-sanitized'),
+methodOverride  = require('method-override');
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(expressSanitized());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
@@ -45,6 +47,7 @@ app.get('/blogs/new' ,function(req, res){
 })
 //CREATE route
 app.post('/blogs', function(req, res){
+    req.body.blog.content = req.sanitize(req.body.blog.content);
     Blog.create(req.body.blog, function(err, newblog){
         if(err)
             {
@@ -79,6 +82,7 @@ app.get('/blogs/:id/edit', function(req, res){
 
 //UPDATE Route
 app.put('/blogs/:id' ,function(req, res){
+    req.body.blog.content = req.sanitize(req.body.blog.content);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if(err) {
             res.redirect('/blogs/'+req.params.id);
@@ -88,7 +92,7 @@ app.put('/blogs/:id' ,function(req, res){
     });
 });
 
-//DELETE Route
+//DESTROY Route
 app.delete('/blogs/:id', function(req, res){
     Blog.findByIdAndRemove(req.params.id, function(err, deletedBlog){
         if(err) {

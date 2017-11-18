@@ -11,8 +11,8 @@
                 <p><%- blog.content %></p>
             </div>
             <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-                <a class="ui blue basic button" href="/blogs/<%= blog._id %>?_method=PUT">Edit</a>
-				<button id="delete" class="ui red basic button">Delete</button>
+                <a class="ui blue inverted button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+				<button id="delete" class="ui red inverted button">Delete</button>
 			</form>
         </div>
     </div>
