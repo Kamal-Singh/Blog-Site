@@ -2,12 +2,12 @@ var express     = require('express'),
 app             = express(),
 mongoose        = require('mongoose'),
 bodyParser      = require('body-parser'),
-expressSanitized= require('express-sanitized'),
+expressSanitizer= require('express-sanitizer'),
 methodOverride  = require('method-override');
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(expressSanitized());
+app.use(expressSanitizer());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
